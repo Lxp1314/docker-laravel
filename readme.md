@@ -21,6 +21,8 @@ docker run -it --rm -v /share/source:/source  node-apidoc sh
 apidoc -i app/Http/Controllers/ -o ../apidoc/laravel51 -f ".*\\.php$"
 ```
 -i Input / source dirname. Location of your project files.（我只生成/app/Http/Controllers下面的文件）
+
 -o Output dirname.（把生成的api文档放到哪个目录，示例放到了/source/apidoc/laravel51文件夹下）
+
 -f 遍历的文件类型
 
