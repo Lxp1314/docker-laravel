@@ -33,8 +33,8 @@ services:
     ports:
       - "9000:9000"
     links:
-      - mysql:mysql
-      - redis:redis
+      - mysql:mysql_host
+      - redis:redis_host
     volumes:
       - ./source:/source
       - ./log/supervisor:/var/log/supervisor
@@ -54,7 +54,9 @@ services:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/mysqld.cnf:/etc/mysql/conf.d/mysqld.cnf
     environment:
+      # array方式
       - MYSQL_ROOT_PASSWORD=root
+      - TZ=Asia/Shanghai
 
   redis:
     image: redis:latest
@@ -67,3 +69,7 @@ services:
       - ./redis/data:/data
     ports:
         - "6379:6379"
+    environment:
+      # 字典方式
+      TZ: Asia/Shanghai
+
